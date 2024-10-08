@@ -1,24 +1,25 @@
-const COUNTER = document.querySelector(".counter");
-const MINUS = document.querySelector(".onMinus");
+const COUNTER = document.querySelector(".counter-display");
+const COUNTER_BYNARY = document.querySelector(".counter-display-binary-system");
 const PLUS = document.querySelector(".onPlus");
+const MINUS = document.querySelector(".onMinus");
 
-let count = 0;
+let counter = 0;
 
-const changeCount = () => {
-    COUNTER.textContent = count;
-  };
+const plusFunction = () => {
+  if (counter < 10) {
+    counter++;
+    COUNTER.textContent = counter;
+    COUNTER_BYNARY.textContent = counter.toString(2);
+  }
+};
 
-  MINUS.addEventListener ("click", (event) => {
-  
-    if (count > -100) {
-      count -= 10;
-      changeCount();
-    }
-  });
+const minusFunction = () => {
+  if (counter > -10) {
+    counter--;
+    COUNTER.textContent = counter;
+    COUNTER_BYNARY.textContent = counter.toString(2);
+  }
+};
 
-  PLUS.addEventListener("click", (event)=>{
-    if (count<100){
-      count+=10;
-      changeCount();
-    }
-  })
+PLUS.addEventListener("click", plusFunction);
+MINUS.addEventListener("click", minusFunction);
