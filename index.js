@@ -1,25 +1,29 @@
-const COUNTER = document.querySelector(".counter-display");
-const COUNTER_BYNARY = document.querySelector(".counter-display-binary-system");
-const PLUS = document.querySelector(".onPlus");
-const MINUS = document.querySelector(".onMinus");
+//Выбираем элементы DOM
+const display = document.querySelector(".counter-display");
+const displayBinary = document.querySelector(".counter-display-binary-system");
+const plusButton = document.querySelector(".onPlus");
+const minusButton = document.querySelector(".onMinus");
 
 let counter = 0;
+
+const updateDisplay = () => {
+  display.textContent = counter;
+  displayBinary.textContent = counter.toString(2);
+};
 
 const plusFunction = () => {
   if (counter < 10) {
     counter++;
-    COUNTER.textContent = counter;
-    COUNTER_BYNARY.textContent = counter.toString(2);
+    updateDisplay();
   }
 };
 
 const minusFunction = () => {
   if (counter > -10) {
     counter--;
-    COUNTER.textContent = counter;
-    COUNTER_BYNARY.textContent = counter.toString(2);
+    updateDisplay();
   }
 };
 
-PLUS.addEventListener("click", plusFunction);
-MINUS.addEventListener("click", minusFunction);
+plusButton.addEventListener("click", plusFunction);
+minusButton.addEventListener("click", minusFunction);
