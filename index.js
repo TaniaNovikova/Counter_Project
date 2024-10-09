@@ -4,21 +4,25 @@ const displayBinary = document.querySelector(".counter-display-binary-system");
 const plusButton = document.querySelector(".onPlus");
 const minusButton = document.querySelector(".onMinus");
 
-let counter = 0
+let counter = 0;
 
 const updateDisplay = () => {
-    display.textContent = counter;
-    displayBinary.textContent = counter.toString(2);
-}
+  display.textContent = counter;
+  displayBinary.textContent = counter.toString(2);
+};
 
 const plusFunction = () => {
+  if (counter < 10) {
     counter++;
     updateDisplay();
+  }
 };
 
 const minusFunction = () => {
-    counter--
+  if (counter > -10) {
+    counter--;
     updateDisplay();
+  }
 };
 
 plusButton.addEventListener("click", plusFunction);
