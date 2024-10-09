@@ -37,6 +37,10 @@
     align-items: center;
   }
 
+  .counter-wrapping{
+    width: 600px;
+    height: 600px;
+  }
   
 
   
