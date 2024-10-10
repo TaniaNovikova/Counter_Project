@@ -27,21 +27,7 @@
     padding: 0;
   }
 
-  .counter-wrapping{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .counter-wrapping{
-    width: 600px;
-    height: 600px;
-  }
   
 
   
