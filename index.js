@@ -18,8 +18,6 @@ let minutes = 0;
 let seconds = 0;
 let timerIntervalId = null;
 let timerInfinityIntervalId = null;
-let intervalIdHoldPlus = null;
-let intervalIdHoldMinus = null;
 
 //Функция смены системы счисления для отображаемых чисел
 const changeSystemFunction = () => {
@@ -148,19 +146,18 @@ const timerFunction = () => {
             const formattedHours = hours < 10 ? `0${hours}` : hours;
             const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
             const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
-            counter = 0;
 
             seconds--;
             display.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 
-            if (minutes < 0) {
-                minutes = 59;
-                hours--;
-            }
-
             if (seconds < 0) {
                 seconds = 59;
                 minutes--;
+            }
+
+            if (minutes < 0) {
+                minutes = 59;
+                hours--;
             }
 
             if (hours === 0 && minutes === 0 && seconds === 0) {
@@ -175,16 +172,19 @@ const timerFunction = () => {
     else {timerInfinityIntervalId = setInterval(updateTimeInfinity, 1000);}
 }
 
+//Функции для обработки события - удержания нажатия на кнопках + и -
 let holdTimeoutPlusId = null;
 let holdTimeoutMinusId = null;
+let intervalIdHoldPlus = null;
+let intervalIdHoldMinus = null;
 
 const startHoldingPlus = () => {
     holdTimeoutPlusId = setTimeout(() => {
         intervalIdHoldPlus = setInterval(() => {
             plusFunction();
         }, 100);
-    }, 500);
-};
+    }, 500); // <-- Слишком быстрая реакция на нажатие приводила к проскальзыванию счетчика
+};                   //поэтому появилась необходимость обернуть в SetTimeout
 
 const startHoldingMinus = () => {
     holdTimeoutMinusId = setTimeout (() => {
