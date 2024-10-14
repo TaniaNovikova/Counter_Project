@@ -150,7 +150,17 @@ input[type="radio"] {
 }
 
 input[type="radio"]:disabled{
-  background-color: #FFAA33;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #FFAA33;
+  outline: none;
+  margin-right: 3px;
+  background-color: gray;
+  cursor: not-allowed;
 }
 
 .radio-label {
