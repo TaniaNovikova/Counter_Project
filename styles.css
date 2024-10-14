@@ -77,6 +77,7 @@ li {
   border: black solid 6px;
   box-shadow: inset 0px 0px 8px cadetblue;
   transition: 0.7s;
+  overflow: hidden
 }
 
 #change-buttons {
@@ -90,13 +91,11 @@ li {
   align-items: center;
   justify-content: center;
   background-color: darkgray;
-  color: #fff;
   width: 170px;
   height: 50px;
   border-radius: 6px;
   border-color: green;
   color: red;
-  font-size: 40px;
   cursor: pointer;
   box-shadow: inset 0px 0px 12px lightgray;
   font-family: "Share Tech Mono", monospace;
@@ -109,14 +108,12 @@ li {
   align-items: center;
   justify-content: center;
   background-color: darkgray;
-  color: #fff;
   width: 170px;
   height: 50px;
   border-radius: 6px;
   border-color: green;
   color: green;
   margin-bottom: 15px;
-  font-size: 40px;
   cursor: pointer;
   box-shadow: inset 0px 0px 12px lightgray;
   font-family: "Share Tech Mono", monospace;
@@ -150,6 +147,10 @@ h2 {
 input[type="radio"] {
   accent-color: green;
   cursor: pointer;
+}
+
+input[type="radio"]:disabled{
+  background-color: #FFAA33;
 }
 
 .radio-label {
