@@ -65,6 +65,7 @@ const resetFunction = () => {
     display.style.color = "#00FFFF";
     display.style.textShadow = "0px 0px 8px #00FFFF";
     allButtons.forEach(button => button.removeAttribute("disabled"));
+    radios.forEach(button => button.removeAttribute("disabled"));
     clearInterval(timerIntervalId);
     clearInterval(timerInfinityIntervalId);
 }
@@ -100,6 +101,7 @@ const autoPlusFunction = (number) => {
 
 //Таймер для отсчета времени вперед без ограничения
 const updateTimeInfinity = () => {
+    radios.forEach(button => button.setAttribute("disabled", ""));
     const formattedHours = hours < 10 ? `0${hours}` : hours;
     const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
     const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
@@ -122,6 +124,7 @@ const updateTimeInfinity = () => {
 //Функция управления кнопкой START в зависимости от текущего значения счетчика
 const timerFunction = () => {
     allButtons.forEach(button => button.setAttribute("disabled", ""));
+    radios.forEach(button => button.setAttribute("disabled", ""));
     resetButton.removeAttribute("disabled");
     hours = Math.floor(counter / 3600);
     minutes = Math.floor((counter % 3600) / 60);
@@ -135,6 +138,7 @@ const timerFunction = () => {
             else {
                 clearInterval(intervalId)
                 allButtons.forEach(button => button.removeAttribute("disabled"));
+                radios.forEach(button => button.removeAttribute("disabled"));
             }
         }, 1000)
     }

@@ -149,6 +149,10 @@ input[type="radio"] {
   cursor: pointer;
 }
 
+input[type="radio"]:disabled{
+  background-color: #FFAA33;
+}
+
 .radio-label {
   color: darkgray;
 }
