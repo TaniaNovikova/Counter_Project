@@ -10,3 +10,4 @@ https://www.dafont.com/chess-7-chess-7.d1833
 }
 4) Шрифт дисплея изменить на font-family: 'Digital7', monospace;
 5) подрегулировать размер если нужно
+mew
